@@ -46,6 +46,21 @@ while True:
 
     if user == "4":
         print("You chose to delete a task")
+        if not user_list:
+            print("No tasks yet")
+        else:
+            for index, task in enumerate(user_list, start=1):
+                status = "[>]" if task["done"] else "[ ]"
+                print(f"{index}, {status} {task['Description']}")
+
+            delete_task = int(input("Input number of task to delete: "))
+            if 1 <= delete_task <= len(user_list):
+                del user_list[delete_task - 1]
+                print("task deleted successfully")
+            else:
+                print("print a valid number")
+
+
     if user == "5":
         break
     else:
