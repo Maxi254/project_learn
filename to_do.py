@@ -18,6 +18,7 @@ while True:
                 print(task)
                 user_list.append({"Description":task, "done": False})
                 print(f"task {task} added") 
+
     if user == "2":
         print("you chose to view tasks")
         if not user_list:
@@ -25,7 +26,8 @@ while True:
         else:
             for index, task in enumerate(user_list, start=1):
                 status = "[>]" if task["done"] else "[]"
-                print(f"{index}, {status} {task["desription"]}")
+                print(f"{index}, {status} {task['Description']}")
+
     if user == "3":
         print("You choose to mark a task complete.")
         if not user_list:
@@ -33,14 +35,14 @@ while True:
         else:
             for index, task in enumerate(user_list, start=1):
                 status = "[>]" if task["done"] else "[]"
-                print(f"{index}, {status} {task["description"]}")
+                print(f"{index}, {status} {task['Description']}")
 
-                task_num = int(input("input the task number of your choice"))
-                if 1 <= task_num <= len(user_list):
-                    user_list[task_num - 1]["done"] = True
-                    print("Task marking complete")
-                else:
-                    print("invalid number boss")
+            task_num = int(input("input the task number of your choice"))
+            if 1 <= task_num <= len(user_list):
+                user_list[task_num - 1]["done"] = True
+                print("Task marking complete")
+            else:
+                print("invalid number boss")
 
     if user == "4":
         print("You chose to delete a task")
